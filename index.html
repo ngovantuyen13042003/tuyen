@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div>
+        <fieldset>
+            <legend>TAM GIÁC</legend>
+            <div>
+                <label for="a">nhập a:</label>
+                <input type="text" value="" id="a">
+            </div>
+            <div>
+                <label for="b">nhập b:</label>
+                <input type="text" value="" id="b">
+            </div>
+            <div>
+                <label for="c">nhập c:</label>
+                <input type="text" value="" id="c">
+            </div>
+            <div>
+                <label for="result">kết quả</label>
+                <input type="text" value="" id="result">
+            </div>
+            <button id="check">kiểm tra</button>
+            <button type="reset">reset</button>
+        </fieldset>
+    </div>
+    <script>
+        var a,b,c,cv,p,s;
+        var result = document.getElementById("result");
+        var check = document.getElementById("check");
+        check.onclick = function(){
+            a = parseInt(document.getElementById('a').value);
+            b = parseInt(document.getElementById('b').value);
+            c = parseInt(document.getElementById('c').value);
+            cv = a+b+c;
+            p = cv/2;
+            s = Math.sqrt(p*(p-a)*(p-b)*(p-c));
+            if((a+b)>c && (b+c)>a && (a+c)>b) {
+                result.value = 'dien tich tam giac = ' + s;
+            }
+            else {
+                result.value = a + ',' + b + ',' + c  +' khong phai tam giac';
+            }
+        }
+    </script>
+</body>
+</html>

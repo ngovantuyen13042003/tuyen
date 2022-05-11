@@ -1,0 +1,78 @@
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width: 700px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        div{
+            margin: 10px;
+        }
+        #check{
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" id="form">
+        <fieldset>
+            <legend>SỐ NGUYÊN TỐ</legend>
+            <div>
+                <label for="n">nhap n:</label>
+                <input type="text" value="" id="n">
+            </div>
+            <div>
+                <label for="result">kết quả</label>
+                <input type="text" value="" id="result">
+            </div>
+            <button id="check">kiểm tra</button>
+            <button type="reset">reset</button>
+        </fieldset>
+    </form>
+    <script>
+        var i,dem=0,n;
+        
+        function NTO(m) {
+            var dem =0,m,i;
+            for(i=1;i<=m;i++) {
+                if(m%i==0)
+                    dem++;
+            }
+            if(dem==2) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+        function NTO_1() {
+            var n = parseInt(document.getElementById("n").value);
+            if(NTO(n)==1)
+            {
+                for(i=1;i<=n;i++)
+                    if(NTO(i)==1)   
+                        result.value += ' ' + i; 
+            }
+            else {
+                result.value = n + ' không phải số nguyên tố!';
+            }
+        }
+        var result = document.getElementById("result");
+        var button = document.getElementById("check");
+        var form = document.getElementById("form");
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+        })
+        button.onclick = function() {
+            NTO_1();
+        }
+    </script>
+</body>
+</html>
